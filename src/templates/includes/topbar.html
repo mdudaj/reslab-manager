@@ -1,0 +1,22 @@
+<div class="ui top fixed menu">
+    <a class="item toggle">
+        <i class="sidebar icon"></i> Menu
+    </a>
+
+    <div class="right menu">
+        <div class="ui dropdown item">
+            <i class="bell icon"></i> Notifications
+            <div class="menu">
+                <div class="item">No new notifications</div>
+            </div>
+        </div>
+
+        <div class="ui dropdown item">
+            <i class="user circle icon"></i> {{ request.user.username }}
+            <div class="menu">
+                <a class="item" href="{% url 'accounts:logout' %}"><i class="user icon"></i> Profile</a>
+                <a class="item" href="{% url 'accounts:logout' %}"><i class="sign-out icon"></i> Logout</a>
+            </div>
+        </div>
+    </div>
+</div>

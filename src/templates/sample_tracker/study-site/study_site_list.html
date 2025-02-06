@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Study Site List{% endblock %}
+
+{% block content %}
+<h2 class="ui header">Study Site List</h2>
+
+<!-- Study Site List -->
+ <div class="ui segment">
+    <h3 class="ui header">Study Sites</h3>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Study</th>
+                <th>Site</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for study_site in study_sites %}
+            <tr>
+                <td>{{ study_site.study.name }}</td>
+                <td>{{ study_site.site.name }}</td>
+                <td>
+                    <a href="{% url 'sample_tracker:study_site_detail' study_site.id %}" class="ui button">View</a>
+                    <a href="{% url 'sample_tracker:study_site_update' study_site.id %}" class="ui button">Edit</a>
+                    <a href="{% url 'sample_tracker:study_site_delete' study_site.id %}" class="ui button">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No study sites available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Research Lab Management Information System{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="ui container">
+        <div class="ui menu">
+            <div class="header item">Research Lab Management Information System</div>
+        </div>
+        
+        {% block content %}
+        <div class="ui segment">
+            <p>Welcome to my Django application!</p>
+        </div>
+        {% endblock %}
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

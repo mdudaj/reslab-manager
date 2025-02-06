@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Sample Detail{% endblock %}
+
+{% block content %}
+<div class="sixteen wide column">
+    <h2 class="ui header">Sample Detail</h2>
+    <div class="ui segment">
+        <h3 class="ui header">Sample</h3>
+        <table class="ui celled table">
+            <tbody>
+                <tr>
+                    <td>Study Site</td>
+                    <td>{{ sample.study_site }}</td>
+                </tr>
+                <tr>
+                    <td>Sample ID</td>
+                    <td>{{ sample.sample_id }}</td>
+                </tr>
+                <tr>
+                    <td>Sample Type</td>
+                    <td>{{ sample.sample_type }}</td>
+                </tr>
+                <tr>
+                    <td>Collection Date</td>
+                    <td>{{ sample.collection_date }}</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>{{ sample.status }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'sample_tracker:sample_update' sample.id %}" class="ui button">Edit</a>
+    <a href="{% url 'sample_tracker:sample_delete' sample.id %}" class="ui button">Delete</a>
+</div>
+{% endblock %}

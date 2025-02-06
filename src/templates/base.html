@@ -1,0 +1,48 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+    
+    <!-- Semantic UI CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+    <!-- Sidebar -->
+    {% include "includes/sidebar.html" %}
+
+    <!-- Main Content Area -->
+    <div class="pusher">
+        <!-- Top Bar -->
+        {% include "includes/topbar.html" %}
+
+        <div class="ui container main-content">
+            {% include "includes/messages.html" %}
+            {% block content %}
+            <!-- Dynamic Page Content Goes Here -->
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- Semantic UI & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.ui.dropdown').dropdown();  // Initialize Dropdowns
+            $('.ui.sidebar').sidebar('attach events', '.menu .item.toggle');
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

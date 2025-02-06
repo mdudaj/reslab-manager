@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Sample List{% endblock %}
+
+{% block content %}
+<h2 class="ui header">Sample List</h2>
+
+<!-- Sample List -->
+ <div class="ui segment">
+    <h3 class="ui header">Samples</h3>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Study Site</th>
+                <th>Sample ID</th>
+                <th>Sample Type</th>
+                <th>Collection Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sample in samples %}
+            <tr>
+                <td>{{ sample.study_site }}</td>
+                <td>{{ sample.sample_id }}</td>
+                <td>{{ sample.sample_type }}</td>
+                <td>{{ sample.collection_date }}</td>
+                <td>{{ sample.status }}</td>
+                <td>
+                    <a href="{% url 'sample_tracker:sample_detail' sample.id %}" class="ui button">View</a>
+                    <a href="{% url 'sample_tracker:sample_update' sample.id %}" class="ui button">Edit</a>
+                    <a href="{% url 'sample_tracker:sample_delete' sample.id %}" class="ui button">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No samples available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ </div>
+{% endblock %}

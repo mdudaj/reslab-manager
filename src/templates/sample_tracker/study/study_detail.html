@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Study Detail{% endblock %}
+
+{% block content %}
+<h2 class="ui header">Study Detail</h2>
+
+<!-- Study Detail -->
+<div class="ui segment">
+    <h3 class="ui header">Study</h3>
+    <table class="ui celled table">
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>{{ study.name }}</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>{{ study.description }}</td>
+            </tr>
+            <tr>
+                <td>Start Date</td>
+                <td>{{ study.start_date }}</td>
+            </tr>
+            <tr>
+                <td>End Date</td>
+                <td>{{ study.end_date }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
