@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Plate List{% endblock %}
+
+{% block content %}
+<div class="ui grid stackable padded">
+    <div class="twelve wide column">
+        <h2 class="ui header">Plate List</h2>
+        <div class="ui divider"></div>
+
+        <!-- Plate List -->
+        <div class="ui raised segment">
+            <h3 class="ui header">Plates</h3>
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Plate ID</th>
+                        <th>Plate Type</th>
+                        <th>Plate Size</th>
+                        <th>Plate Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for plate in plates %}
+                    <tr>
+                        <td>{{ plate.plate_id }}</td>
+                        <td>{{ plate.plate_type }}</td>
+                        <td>{{ plate.plate_size }}</td>
+                        <td>{{ plate.plate_status }}</td>
+                        <td>
+                            <a href="{% url 'sample_tracker:plate_detail' plate.id %}" class="ui button">View</a>
+                            <a href="{% url 'sample_tracker:plate_update' plate.id %}" class="ui button">Edit</a>
+                            <a href="{% url 'sample_tracker:plate_delete' plate.id %}" class="ui button">Delete</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No plates available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="four wide column">
+        <a href="{% url 'sample_tracker:plate_create' %}" class="ui button">Create Plate</a>
+    </div>
+</div>
+{% endblock %}

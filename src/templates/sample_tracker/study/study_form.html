@@ -2,27 +2,76 @@
 {% block title %}Study Form{% endblock %}
 
 {% block content %}
-<div class="sixteen wide column">
-    <h2 class="ui header">{% if is_update %}Update Study{% else %}Add Study{% endif %}</h2>
-    <form class="ui form" method="post" action="{% if is_update %}{% url 'sample_tracker:study_update' study.id %}{% else %}{% url 'sample_tracker:study_create' %}{% endif %}">
-        {% csrf_token %}
-        {% for field in form %}
-        <div class="field">
-            <label>{{ field.label }}</label>
-            {{ field }}
-            <!-- Field errors -->
-             {% if field.errors %}
-            <div class="ui error message">
-                <ul class="ui list">
-                    {% for error in field.errors %}
-                    <li class="item">{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>>
-            {% endif %}
+<div class="ui grid stackable padded">
+    <div class="twelve wide column">
+        <h2 class="ui header">{% if is_update %}Update Study{% else %}Add Study{% endif %}</h2>
+        <div class="ui raised segment">
+            <form class="ui form" method="post" action="{% if is_update %}{% url 'sample_tracker:study_update' study.id %}{% else %}{% url 'sample_tracker:study_create' %}{% endif %}">
+                {% csrf_token %}
+                <div class="field">
+                    <label>Name</label>
+                    {{ form.name }}
+                    <!-- Field errors -->
+                    {% if form.name.errors %}
+                    <div class="ui error message">
+                        <ul class="ui list">
+                            {% for error in form.name.errors %}
+                            <li class="item">{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="field">
+                    <label>Description</label>
+                    {{ form.description }}
+                    <!-- Field errors -->
+                    {% if form.description.errors %}
+                    <div class="ui error message">
+                        <ul class="ui list">
+                            {% for error in form.site.errors %}
+                            <li class="item">{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="equal width fields">
+                    <div class="field">
+                        <label>Start Date</label>
+                        {{ form.start_date }}
+                        <!-- Field errors -->
+                        {% if form.start_date.errors %}
+                        <div class="ui error message">
+                            <ul class="ui list">
+                                {% for error in form.start_date.errors %}
+                                <li class="item">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="field">
+                        <label>End Date</label>
+                        {{ form.end_date }}
+                        <!-- Field errors -->
+                        {% if form.end_date.errors %}
+                        <div class="ui error message">
+                            <ul class="ui list">
+                                {% for error in form.end_date.errors %}
+                                <li class="item">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <button class="ui button" type="submit">{% if is_update %}Update{% else %}Add{% endif %}</button>
+            </form>
         </div>
-        {% endfor %}
-        <button class="ui button" type="submit">{% if is_update %}Update{% else %}Add{% endif %}</button>
-    </form>
-</div>>
+    </div>
+    <div class="four wide column">
+        <a href="{% url 'sample_tracker:study_list' %}" class="ui button">Back to Study List</a>
+    </div>
+</div>
 {% endblock %}

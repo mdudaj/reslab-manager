@@ -109,7 +109,7 @@ class StudyCreateView(CreateView):
     model = Study
     form_class = StudyForm
     template_name = "sample_tracker/study/study_form.html"
-    success_url = reverse_lazy("study_list")
+    success_url = reverse_lazy("sample_tracker:study_list")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -121,7 +121,7 @@ class StudyUpdateView(UpdateView):
     model = Study
     form_class = StudyForm
     template_name = "sample_tracker/study/study_form.html"
-    success_url = reverse_lazy("study_list")
+    success_url = reverse_lazy("sample_tracker:study_list")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -132,7 +132,7 @@ class StudyUpdateView(UpdateView):
 class StudyDeleteView(DeleteView):
     model = Study
     template_name = "sample_tracker/study/confirm_delete.html"
-    success_url = reverse_lazy("study_list")
+    success_url = reverse_lazy("sample_tracker:study_list")
 
 
 # =====================
@@ -154,7 +154,7 @@ class StudySiteCreateView(CreateView):
     model = StudySite
     form_class = StudySiteForm
     template_name = "sample_tracker/study-site/study_site_form.html"
-    success_url = reverse_lazy("study_site_list")
+    success_url = reverse_lazy("sample_tracker:study_site_list")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -166,7 +166,7 @@ class StudySiteUpdateView(UpdateView):
     model = StudySite
     form_class = StudySiteForm
     template_name = "sample_tracker/study-site/study_site_form.html"
-    success_url = reverse_lazy("study_site_list")
+    success_url = reverse_lazy("sample_tracker:study_site_list")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -177,7 +177,7 @@ class StudySiteUpdateView(UpdateView):
 class StudySiteDeleteView(DeleteView):
     model = StudySite
     template_name = "confirm_delete.html"
-    success_url = reverse_lazy("study_site_list")
+    success_url = reverse_lazy("sample_tracker:study_site_list")
 
 
 # =====================
@@ -185,20 +185,20 @@ class StudySiteDeleteView(DeleteView):
 # =====================
 class SampleListView(ListView):
     model = Sample
-    template_name = "sample/sample_list.html"
+    template_name = "sample_tracker/sample/sample_list.html"
     context_object_name = "samples"
 
 
 class SampleDetailView(DetailView):
     model = Sample
-    template_name = "sample/sample_detail.html"
+    template_name = "ssample_tracker/ample/sample_detail.html"
     context_object_name = "sample"
 
 
 class SampleCreateView(CreateView):
     model = Sample
     form_class = SampleForm
-    template_name = "sample/sample_form.html"
+    template_name = "sample_tracker/sample/sample_form.html"
     success_url = reverse_lazy("sample_list")
 
     def get_context_data(self, **kwargs):
@@ -210,7 +210,7 @@ class SampleCreateView(CreateView):
 class SampleUpdateView(UpdateView):
     model = Sample
     form_class = SampleForm
-    template_name = "sample/sample_form.html"
+    template_name = "ssample_tracker/ample/sample_form.html"
     success_url = reverse_lazy("sample_list")
 
     def get_context_data(self, **kwargs):
@@ -221,7 +221,7 @@ class SampleUpdateView(UpdateView):
 
 class SampleDeleteView(DeleteView):
     model = Sample
-    template_name = "confirm_delete.html"
+    template_name = "sample_tracker/sample/confirm_delete.html"
     success_url = reverse_lazy("sample_list")
 
 

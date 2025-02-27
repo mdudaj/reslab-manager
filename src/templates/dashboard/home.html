@@ -1,65 +1,63 @@
-{% extends "base.html" %}
-{% block title %}Dashboard{% endblock %}
+{% extends "base.html" %} 
+
+{% block title %}Dashboard{% endblock %} 
 
 {% block content %}
-<h2 class="ui header">Dashboard</h2>
-
-<!-- Key Metrics -->
-<div class="ui three statistics">
-    <div class="statistic">
-        <div class="value">{{ study_count }}</div>
-        <div class="label">Studies</div>
+<div class="ui grid stackable padded">
+    <div class="three wide computer eight wide tablet sixteen wide mobile  center aligned column">
+        <div class="ui purple statistic">
+            <div class="value">{{ sample_count }}</div>
+            <div class="label">Samples Processed</div>
+        </div>
     </div>
-    <div class="statistic">
-        <div class="value">{{ sample_count }}</div>
-        <div class="label">Samples Processed</div>
+    <div class="three wide computer eight wide tablet sixteen wide mobile  center aligned column">
+        <div class="ui green statistic">
+            <div class="value">{{ accepted_quality_count }}</div>
+            <div class="label">Quality Checks Passed</div>
+        </div>
     </div>
-    <div class="statistic">
-        <div class="value">{{ accepted_quality_count }}</div>
-        <div class="label">Quality Checks Passed</div>
+    <div class="three wide computer eight wide tablet sixteen wide mobile  center aligned column">
+        <div class="ui blue statistic">
+            <div class="value">{{ positive_sample_count }}</div>
+            <div class="label">Positive Samples</div>
+        </div>
     </div>
-</div>
-
-<!-- Sample Status Breakdown -->
-<div class="ui two statistics">
-    <div class="statistic">
-        <div class="value">{{ positive_sample_count }}</div>
-        <div class="label">Positive Samples</div>
-    </div>
-    <div class="statistic">
-        <div class="value">{{ negative_sample_count }}</div>
-        <div class="label">Negative Samples</div>
+    <div class="three wide computer eight wide tablet sixteen wide mobile  center aligned column">
+        <div class="ui red statistic">
+            <div class="value">{{ negative_sample_count }}</div>
+            <div class="label">Negative Samples</div>
+        </div>
     </div>
 </div>
-
-<!-- Recent Samples -->
-<div class="ui segment">
-    <h3 class="ui header">Recent Samples</h3>
-    <table class="ui celled table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Study Site</th>
-                <th>Collection Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for sample in recent_samples %}
-            <tr>
-                <td>{{ sample.sample_id }}</td>
-                <td>{{ sample.sample_type }}</td>
-                <td>{{ sample.get_status_display }}</td>
-                <td>{{ sample.study_site.name }}</td>
-                <td>{{ sample.collection_date }}</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="5">No recent samples available.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="ui grid stackable padded">
+    <div class="twelve wide column">
+        <h2 class="ui header">Recent Samples</h2>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Study Site</th>
+                    <th>Collection Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sample in samples %}
+                <tr>
+                    <td>{{ sample.id }}</td>
+                    <td>{{ sample.sample_type }}</td>
+                    <td>{{ sample.get_status_display }}</td>
+                    <td>{{ sample.study_site.name }}</td>
+                    <td>{{ sample.collection_date }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No samples found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,92 @@
+[
+    {
+        "model": "sample_tracker.address",
+        "pk": 1,
+        "fields": {
+            "created_at": "2025-02-25T16:59:16.015Z",
+            "updated_at": "2025-02-25T16:59:16.015Z",
+            "street": "Bwonyo",
+            "ward": "Kyerwa",
+            "district": "Kyerwa",
+            "region": "Kagera",
+            "postal_code": "35801"
+        }
+    },
+    {
+        "model": "sample_tracker.address",
+        "pk": 2,
+        "fields": {
+            "created_at": "2025-02-25T17:02:24.718Z",
+            "updated_at": "2025-02-25T17:02:24.718Z",
+            "street": "Kagenyi",
+            "ward": "Kyerwa",
+            "district": "Kyerwa",
+            "region": "Kagera",
+            "postal_code": "35801"
+        }
+    },
+    {
+        "model": "sample_tracker.address",
+        "pk": 3,
+        "fields": {
+            "created_at": "2025-02-25T17:03:02.333Z",
+            "updated_at": "2025-02-25T17:03:02.333Z",
+            "street": "Kagenyi A",
+            "ward": "Kyerwa",
+            "district": "Kyerwa",
+            "region": "Kagera",
+            "postal_code": "35801"
+        }
+    },
+    {
+        "model": "sample_tracker.address",
+        "pk": 4,
+        "fields": {
+            "created_at": "2025-02-25T17:03:14.869Z",
+            "updated_at": "2025-02-25T17:03:14.869Z",
+            "street": "Kagenyi B",
+            "ward": "Kyerwa",
+            "district": "Kyerwa",
+            "region": "Kagera",
+            "postal_code": "35801"
+        }
+    },
+    {
+        "model": "sample_tracker.address",
+        "pk": 5,
+        "fields": {
+            "created_at": "2025-02-25T17:04:07.291Z",
+            "updated_at": "2025-02-25T17:04:07.291Z",
+            "street": "Kashanda",
+            "ward": "Kyerwa",
+            "district": "Kyerwa",
+            "region": "Kagera",
+            "postal_code": "35801"
+        }
+    },
+    {
+        "model": "sample_tracker.study",
+        "pk": 1,
+        "fields": {
+            "created_at": "2025-02-25T16:15:12.330Z",
+            "updated_at": "2025-02-25T16:15:12.330Z",
+            "name": "Malaria Molecular Surveillance in Tanzania Phase 2",
+            "description": "The Malaria Molecular Surveillance in Tanzania Phase 2 (MSMT2) project, funded by the Bill and Melinda Gates Foundation, is an initiative led by the Ifakara Health Institute, with Dr. Deusdedith R.S Ishengoma, a Senior Research Officer from the National Institute for Medical Research (NIMR), at the forefront. The project aims to inform the National Malaria Control Program (NMCP) through extensive national surveillance of antimalarial resistance and pfhrp2/3 gene deletions.",
+            "start_date": "2024-07-01",
+            "end_date": "2027-07-01"
+        }
+    },
+    {
+        "model": "sample_tracker.studysite",
+        "pk": 1,
+        "fields": {
+            "created_at": "2025-02-25T17:05:21.783Z",
+            "updated_at": "2025-02-25T17:05:21.783Z",
+            "study": 1,
+            "name": "Kyerwa",
+            "address": 1,
+            "phone": "+255747693099",
+            "email": "vemumburi@gmail.com"
+        }
+    }
+]

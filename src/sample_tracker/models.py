@@ -16,14 +16,14 @@ class Address(TimeStampedModel, models.Model):
 
     street = models.CharField(max_length=255, verbose_name=_("Street"), blank=True)
     ward = models.CharField(max_length=255, verbose_name=_("Ward"))
-    city = models.CharField(max_length=255, verbose_name=_("City"))
-    country = models.CharField(
-        max_length=255, null=True, blank=True, verbose_name=_("Country")
+    district = models.CharField(max_length=255, verbose_name=_("District"))
+    region = models.CharField(
+        max_length=255, null=True, blank=True, verbose_name=_("Region")
     )
     postal_code = models.CharField(max_length=255, verbose_name=_("Postal Code"))
 
     def __str__(self):
-        return self.address
+        return f"{self.ward}, {self.district}, {self.region}"
 
     class Meta:
         verbose_name = _("Address")
@@ -34,6 +34,9 @@ class Study(TimeStampedModel, models.Model):
     """Study details."""
 
     name = models.CharField(max_length=255, unique=True)
+    code = models.CharField(
+        max_length=50, unique=True, verbose_name=_("Study Code"), blank=True
+    )
     description = models.TextField()
     start_date = models.DateField()
     end_date = models.DateField()
@@ -284,3 +287,7 @@ class Pooling(TimeStampedModel, models.Model):
     class Meta:
         verbose_name = _("Pooling")
         verbose_name_plural = _("Pooling")
+
+
+class Archive(TimeStampedModel, models.Model):
+    pass

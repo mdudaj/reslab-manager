@@ -2,40 +2,44 @@
 {% block title %}Study List{% endblock %}
 
 {% block content %}
-<h2 class="ui header">Study List</h2>
+<div class="ui grid stackable padded">
+    <div class="twelve wide column">
+        <h2 class="ui header">Study List</h2>
+        <div class="ui divider"></div>
 
-<!-- Study List -->
- <div class="ui segment">
-    <h3 class="ui header">Studies</h3>
-    <table class="ui celled table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for study in studies %}
-            <tr>
-                <td>{{ study.name }}</td>
-                <td>{{ study.description }}</td>
-                <td>{{ study.start_date }}</td>
-                <td>{{ study.end_date }}</td>
-                <td>
-                    <a href="{% url 'sample_tracker:study_detail' study.id %}" class="ui button">View</a>
-                    <a href="{% url 'sample_tracker:study_update' study.id %}" class="ui button">Edit</a>
-                    <a href="{% url 'sample_tracker:study_delete' study.id %}" class="ui button">Delete</a>
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="5">No studies available.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
- </div>
+        <!-- Study List -->
+        <div class="ui raised segment">
+            <h3 class="ui header">Studies</h3>
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Period</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for study in studies %}
+                    <tr>
+                        <td>{{ study.name }}</td>
+                        <td>{{ study.start_date }} - {{ study.end_date }}</td>
+                        <td>
+                            <a href="{% url 'sample_tracker:study_detail' study.id %}" class="ui button">View</a>
+                            <a href="{% url 'sample_tracker:study_update' study.id %}" class="ui button">Edit</a>
+                            <a href="{% url 'sample_tracker:study_delete' study.id %}" class="ui button">Delete</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No studies available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="four wide column">
+        <a href="{% url 'sample_tracker:study_create' %}" class="ui button">Create Study</a>
+    </div>
+</div>
  {% endblock %}

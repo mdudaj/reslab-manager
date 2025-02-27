@@ -26,6 +26,7 @@ urlpatterns = [
     # Study URLs
     # =====================
     path("studies/", views.StudyListView.as_view(), name="study_list"),
+    path("studies/<int:pk>/", views.StudyDetailView.as_view(), name="study_detail"),
     path("studies/add/", views.StudyCreateView.as_view(), name="study_create"),
     path(
         "studies/<int:pk>/edit/", views.StudyUpdateView.as_view(), name="study_update"
@@ -37,6 +38,11 @@ urlpatterns = [
     # Study Site URLs
     # =====================
     path("study-sites/", views.StudySiteListView.as_view(), name="study_site_list"),
+    path(
+        "study-sites/<int:pk>/",
+        views.StudySiteDetailView.as_view(),
+        name="study_site_detail",
+    ),
     path(
         "study-sites/add/",
         views.StudySiteCreateView.as_view(),
@@ -56,6 +62,7 @@ urlpatterns = [
     # Sample URLs
     # =====================
     path("samples/", views.SampleListView.as_view(), name="sample_list"),
+    path("samples/<int:pk>/", views.SampleDetailView.as_view(), name="sample_detail"),
     path("samples/add/", views.SampleCreateView.as_view(), name="sample_create"),
     path(
         "samples/<int:pk>/edit/", views.SampleUpdateView.as_view(), name="sample_update"

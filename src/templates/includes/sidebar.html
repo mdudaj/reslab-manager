@@ -1,36 +1,53 @@
-<div class="ui left vertical inverted sidebar menu">
+<div class="ui left vertical visible sidebar menu">
     <div class="item">
-        <h3 class="ui header">Lab Management</h3>
+        <div class="ui header">Research Lab Management</div>
+        <div class="ui divider"></div>
+        <div class="menu">
+            <a class="item" href="{% url 'sample_tracker:dashboard_home' %}">
+                <i class="home icon"></i> Dashboard
+            </a>
+        </div>
     </div>
-
-    <a class="item" href="{% url 'sample_tracker:dashboard_home' %}">
-        <i class="home icon"></i> Dashboard
-    </a>
-    <a class="item" href="{% url 'sample_tracker:study_list' %}">
-        <i class="book icon"></i> Studies
-    </a>
-    <a class="item" href="{% url 'sample_tracker:study_site_list' %}">
-        <i class="map marker icon"></i> Study Sites
-    </a>
-    <a class="item" href="{% url 'sample_tracker:sample_list' %}">
-        <i class="flask icon"></i> Samples
-    </a>
-    <a class="item" href="{% url 'sample_tracker:dna_extraction_list' %}">
-        <i class="dna icon"></i> DNA Extractions
-    </a>
-    <a class="item" href="{% url 'sample_tracker:molecular_diagnostic_list' %}">
-        <i class="microscope icon"></i> Molecular Diagnostics
-    </a>
-    <a class="item" href="{% url 'sample_tracker:quality_check_list' %}">
-        <i class="clipboard check icon"></i> Quality Checks
-    </a>
-    <a class="item" href="{% url 'sample_tracker:storage_list' %}">
-        <i class="warehouse icon"></i> Storage
-    </a>
-
     <div class="item">
-        <a class="ui button red fluid" href="{% url 'accounts:logout' %}">
-            <i class="sign-out icon"></i> Logout
-        </a>
+        <div class="ui header">Study Administration</div>
+        <div class="ui divider"></div>
+        <div class="menu">
+            <a class="item" href="{% url 'sample_tracker:study_list' %}">
+                <i class="book icon"></i> Studies
+            </a>
+            <a class="item" href="{% url 'sample_tracker:study_site_list' %}">
+                <i class="map marker icon"></i> Study Sites
+            </a>
+        </div>
+    </div>
+    <div class="item">
+        <div class="ui header">Sample Management</div>
+        <div class="ui divider"></div>
+        <div class="menu">
+            <a class="item" href="{% url 'sample_tracker:sample_list' %}">
+                <i class="flask icon"></i> Samples
+            </a>
+            <a class="item" href="{% url 'sample_tracker:dna_extraction_list' %}">
+                <i class="dna icon"></i> DNA Extractions
+            </a>
+            <a class="item" href="{% url 'sample_tracker:molecular_diagnostic_list' %}">
+                <i class="microscope icon"></i> Molecular Diagnostics
+            </a>
+            <a class="item" href="{% url 'sample_tracker:quality_check_list' %}">
+                <i class="clipboard check icon"></i> Quality Checks
+            </a>
+            <a class="item" href="{% url 'sample_tracker:storage_list' %}">
+                <i class="warehouse icon"></i> Storage
+            </a>        
+        </div>
+    </div>
+    <div class="item">
+        <div class="ui header">User Management</div>
+        <div class="ui divider"></div>
+        <div class="menu">
+            <a class="ui button red fluid" href="{% url 'accounts:logout' %}">
+                <i class="sign-out icon"></i> Logout
+            </a>
+        </div>
     </div>
 </div>

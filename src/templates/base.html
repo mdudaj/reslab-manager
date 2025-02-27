@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     {% block extra_head %}{% endblock %}
 </head>
@@ -19,12 +19,12 @@
     <!-- Sidebar -->
     {% include "includes/sidebar.html" %}
 
+    <!-- Top Bar -->
+    {% include "includes/topbar.html" %}
+
     <!-- Main Content Area -->
     <div class="pusher">
-        <!-- Top Bar -->
-        {% include "includes/topbar.html" %}
-
-        <div class="ui container main-content">
+        <div class="main-content" style="margin-top: 60px;">
             {% include "includes/messages.html" %}
             {% block content %}
             <!-- Dynamic Page Content Goes Here -->

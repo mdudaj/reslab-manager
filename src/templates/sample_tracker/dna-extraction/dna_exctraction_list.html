@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}DNA Extraction List{% endblock %}
+
+{% block content %}
+<div class="ui grid stackable padded">
+    <div class="twelve wide column">
+        <h2 class="ui header">DNA Extraction List</h2>
+        <div class="ui divider
+        "></div>
+
+        <!-- DNA Extraction List -->
+        <div class="ui raised segment">
+            <h3 class="ui header">DNA Extractions</h3>
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Sample ID</th>
+                        <th>Extraction Date</th>
+                        <th>Extraction Method</th>
+                        <th>Concentration</th>
+                        <th>Volume</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dna_extraction in dna_extractions %}
+                    <tr>
+                        <td>{{ dna_extraction.sample_id }}</td>
+                        <td>{{ dna_extraction.extraction_date }}</td>
+                        <td>{{ dna_extraction.extraction_method }}</td>
+                        <td>{{ dna_extraction.concentration }}</td>
+                        <td>{{ dna_extraction.volume }}</td>
+                        <td>
+                            <a href="{% url 'sample_tracker:dna_extraction_detail' dna_extraction.id %}" class="ui button">View</a>
+                            <a href="{% url 'sample_tracker:dna_extraction_update' dna_extraction.id %}" class="ui button">Edit</a>
+                            <a href="{% url 'sample_tracker:dna_extraction_delete' dna_extraction.id %}" class="ui button">Delete</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6">No DNA extractions available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="four wide column">
+        <a href="{% url 'sample_tracker:dna_extraction_create' %}" class="ui button">Create DNA Extraction</a>
+    </div>
+</div>
+{% endblock %}

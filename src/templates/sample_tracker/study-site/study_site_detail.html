@@ -3,26 +3,35 @@
 {% block title %}Study Site Detail{% endblock %}
 
 {% block content %}
-<h2 class="ui header">Study Site Detail</h2>
+<div class="ui grid stackable padded">
+    <div class="twelve wide column">
+        <h2 class="ui header">Study Site Detail</h2>
 
-<!-- Study Site Detail -->
-<div class="ui segment">
-    <h3 class="ui header">Study Site</h3>
-    <table class="ui celled table">
-        <tbody>
-            <tr>
-                <td>Study</td>
-                <td>{{ study_site.study.name }}</td>
-            </tr>
-            <tr>
-                <td>Site</td>
-                <td>{{ study_site.site.name }}</td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td>{{ study_site.site.address }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <!-- Study Site Detail -->
+        <div class="ui segment">
+            <h3 class="ui header">Study Site</h3>
+            <table class="ui celled table">
+                <tbody>
+                    <tr>
+                        <td>Study</td>
+                        <td>{{ study_site.study.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Site</td>
+                        <td>{{ study_site.site.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>{{ study_site.site.address }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="four wide column">
+        <a href="{% url 'sample_tracker:study_site_list' %}" class="ui button">Back to Study Site List</a>
+        <a href="{% url 'sample_tracker:study_site_update' study_site.id %}" class="ui button">Edit Study Site</a>
+        <a href="{% url 'sample_tracker:study_site_delete' study_site.id %}" class="ui button">Delete Study Site</a>
+    </div>
 </div>
 {% endblock %}

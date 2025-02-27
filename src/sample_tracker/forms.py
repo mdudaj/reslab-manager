@@ -19,7 +19,7 @@ class AddressForm(forms.ModelForm):
 
     class Meta:
         model = Address
-        fields = ["street", "ward", "city", "country", "postal_code"]
+        fields = ["street", "ward", "district", "region", "postal_code"]
         widgets = {
             "street": forms.TextInput(
                 attrs={"class": "ui input", "placeholder": "Enter street"}
@@ -27,11 +27,11 @@ class AddressForm(forms.ModelForm):
             "ward": forms.TextInput(
                 attrs={"class": "ui input", "placeholder": "Enter ward"}
             ),
-            "city": forms.TextInput(
-                attrs={"class": "ui input", "placeholder": "Enter city"}
+            "district": forms.TextInput(
+                attrs={"class": "ui input", "placeholder": "Enter district"}
             ),
-            "country": forms.TextInput(
-                attrs={"class": "ui input", "placeholder": "Enter country"}
+            "region": forms.TextInput(
+                attrs={"class": "ui input", "placeholder": "Enter region"}
             ),
             "postal_code": forms.TextInput(
                 attrs={"class": "ui input", "placeholder": "Enter postal code"}
